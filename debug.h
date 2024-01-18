@@ -25,8 +25,8 @@ void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i : x) cerr << (f++
 void _print() {cerr << "]\n";}
 template <typename T, typename... V>
 void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
 
+#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
 
 // #ifndef LOCAL
 // #define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
