@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+/* GREEN UNIVERSITY OF BANGLADESH
+    Md DinIslam, Batch-221 (CSE)
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+void solve() {
+    $1
+}
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    int t = 1;
+    // cin >> t;
+    while (t--) solve();
+    return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>simple cp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
