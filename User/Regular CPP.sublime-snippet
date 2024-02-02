@@ -1,7 +1,7 @@
 <snippet>
 	<content><![CDATA[
 /* GREEN UNIVERSITY OF BANGLADESH
-       Md DinIslam, Batch-221 (CSE)
+    Md DinIslam, Batch-221 (CSE)
 */
 #include <bits/stdc++.h>
 // #include <ext/pb_ds/assoc_container.hpp>
@@ -10,16 +10,13 @@ using namespace std;
 // using namespace __gnu_pbds;
 #ifdef LOCAL
 #include "debug.h"
-#else
-#define debug(...)
 #endif
 #define ll long long
 void solve() {
     $1
 }
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(0), cin.tie(0);
     int t = 1;
     // cin >> t;
     while (t--) solve();
