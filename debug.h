@@ -34,6 +34,39 @@ template<class T> void __print(T v) {
 	cerr << "}";
 }
 
+template<class T> void __print(queue<T> q) {
+	int f = 0;
+	cerr << '{';
+	while (!q.empty()) {
+		cerr << (f++ ? "," : "");
+		__print(q.front());
+		q.pop();
+	}
+	cerr << "}";
+}
+
+template<class T> void __print(priority_queue<T> pq) {
+	int f = 0;
+	cerr << '{';
+	while (!pq.empty()) {
+		cerr << (f++ ? "," : "");
+		__print(pq.top());
+		pq.pop();
+	}
+	cerr << "}";
+}
+
+template<class T> void __print(stack<T> st) {
+	int f = 0;
+	cerr << '{';
+	while (!st.empty()) {
+		cerr << (f++ ? "," : "");
+		__print(st.top());
+		st.pop();
+	}
+	cerr << "}";
+}
+
 void _print() {cerr << "]\n";}
 
 template <class T, class... V> void _print(T t, V... v) {
