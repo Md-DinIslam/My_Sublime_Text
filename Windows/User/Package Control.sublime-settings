@@ -1,0 +1,29 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"1337 Color Scheme",
+		"A File Icon",
+		"auto-save",
+		"BracketHighlighter",
+		"Brackets Color Scheme",
+		"Color Highlight",
+		"ColorHelper",
+		"Colorsublime",
+		"Compare Side-By-Side",
+		"DiffTabs",
+		"Formatter",
+		"Materialize",
+		"Night Owl",
+		"One Dark Material - Theme",
+		"Package Control",
+		"Python 3",
+		"RainbowBrackets",
+		"SublimeAStyleFormatter",
+		"SublimeLinter",
+		"Theme - Tech49",
+	],
+}
