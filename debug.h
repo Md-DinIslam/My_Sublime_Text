@@ -24,6 +24,22 @@ template<class T, class V> void __print(const pair<T, V> &x) {
 	cerr << '}';
 }
 
+template<class T, class V> void __print(const map<T, vector<V>> &pr) {
+	cerr << "{";
+	for (auto &x : pr) {
+		cerr << "{";
+		__print(x.first);
+		cerr << "--> ";
+		bool f = 0;
+		for (auto &v : x.second) {
+			cerr << (f++ ? "," : "");
+			__print(v);
+		}
+		cerr << "}";
+	}
+	cerr << "}";
+}
+
 template<class T> void __print(T v) {
 	int f = 0;
 	cerr << '{';
@@ -81,6 +97,13 @@ template <class T, class... V> void _print(T t, V... v) {
 
 // #ifndef LOCAL
 // #define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
+// #else
+// #define debug(x...)
+// #endif
+
+// Debug
+// #ifdef LOCAL
+// #include "debug.h"
 // #else
 // #define debug(x...)
 // #endif
