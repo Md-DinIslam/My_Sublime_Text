@@ -1,41 +1,39 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define ull unsigned long long int
-#define pb push_back
-#define mp make_pair
-#define fi first
-#define se second
-#define p(x) printf("%d\n", x)
-#define pl(x) printf("%lld\n", x)
-#define s(x) scanf("%d", &x)
-#define sl(x) scanf("%lld", &x)
-#define sf(x) scanf("%lf", &x)
-#define bitcount __builtin_popcountll
-#define INF 1e18+9
-#define endl '\n'
-#define FIO ios_base::sync_with_stdio(false)
 using namespace std;
-#define M 1000000007
-#define MAX 1000001
-#define trace1(x)                cerr<<#x<<": "<<x<<endl
-#define trace2(x, y)             cerr<<#x<<": "<<x<<" | "<<#y<<": "<<y<<endl
-#define trace3(x, y, z)          cerr<<#x<<":" <<x<<" | "<<#y<<": "<<y<<" |\
-									 "<<#z<<": "<<z<<endl
-#define trace4(a, b, c, d)       cerr<<#a<<": "<<a<<" | "<<#b<<": "<<b<<" |\
-									 "<<#c<<": "<<c<<" | "<<#d<<": "<<d<<endl
-#define trace5(a, b, c, d, e)    cerr<<#a<<": "<<a<<" | "<<#b<<": "<<b<<" |\
-									 "<<#c<<": "<<c<<" | "<<#d<<": "<<d<<" | "<<#e<< ": "<<e<<endl
-#define trace6(a, b, c, d, e, f) cerr<<#a<<": "<<a<<" | "<<#b<<": "<<b<<" | "<<#c<<": "<< c<<" |\
-								 "<<#d<<": "<<d<<" | "<<#e<< ": "<<e<<" | "<<#f<<": "<<f<<endl
 
+// Macros
+#define pf(x) printf("%d\n", x)
+#define pfl(x) printf("%lld\n", x)
+#define sc(x) scanf("%d", &x)
+#define scl(x) scanf("%lld", &x)
+#define scf(x) scanf("%lf", &x)
+#define rep(i, n) for (int i = 0; i < n; i++)
+#define rep2(i, a, n) for (int i = a; i <= n; i++)
+#define repR(i, m, n) for (int i = n; i >= m; i--)
+#define ff first
+#define ss second
+#define pb push_back
+#define pp pop_back
+#define mp make_pair
+#define py cout << "YES\n";
+#define pm cout << "-1\n";
+#define pn cout << "NO\n";
+#define nn cout << '\n';
+#define bitcount __builtin_popcountll
+#define endl '\n'
+#define speed ios_base::sync_with_stdio(0); cin.tie(0);
+#define arr array
+#define all(v) v.begin(), v.end()
+#define allR(v) v.end(), v.begin()
+// End of Macros
 
-//DEBUG
-// #ifdef LOCAL
-// #include "debug.h"
-// #else
-// #define debug(x...)
-// #endif
+// Constraints
+const lld PI = 3.141592653589793238;
+const ll INF = 1e18 + 9;
+const ll mod = 1e9 + 7;
+// End of Constraints
 
+// Start of Debug Template
 void __print(int x) {cerr << x;}
 void __print(long x) {cerr << x;}
 void __print(long long x) {cerr << x;}
@@ -50,18 +48,83 @@ void __print(const char *x) {cerr << '\"' << x << '\"';}
 void __print(const string &x) {cerr << '\"' << x << '\"';}
 void __print(bool x) {cerr << (x ? "true" : "false");}
 
-template<typename T, typename V>
-void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
-template<typename T>
-void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i : x) cerr << (f++ ? "," : ""), __print(i); cerr << "}";}
+template<class T, class V> void __print(const pair<T, V> &x) {
+	cerr << '{'; __print(x.first);
+	cerr << ","; __print(x.second);
+	cerr << '}';
+}
+
+template<class T, class V> void __print(const map<T, vector<V>> &pr) {
+	cerr << "{";
+	for (auto &x : pr) {
+		cerr << "{";
+		__print(x.first);
+		cerr << "--> ";
+		bool f = 0;
+		for (auto &v : x.second) {
+			cerr << (f++ ? "," : "");
+			__print(v);
+		}
+		cerr << "}";
+	}
+	cerr << "}";
+}
+
+template<class T> void __print(T v) {
+	int f = 0;
+	cerr << '{';
+	for (auto &i : v) {
+		cerr << (f++ ? "," : "");
+		__print(i);
+	}
+	cerr << "}";
+}
+
+template<class T> void __print(queue<T> q) {
+	int f = 0;
+	cerr << '{';
+	while (!q.empty()) {
+		cerr << (f++ ? "," : "");
+		__print(q.front());
+		q.pop();
+	}
+	cerr << "}";
+}
+
+template<class T> void __print(priority_queue<T> pq) {
+	int f = 0;
+	cerr << '{';
+	while (!pq.empty()) {
+		cerr << (f++ ? "," : "");
+		__print(pq.top());
+		pq.pop();
+	}
+	cerr << "}";
+}
+
+template<class T> void __print(stack<T> st) {
+	int f = 0;
+	cerr << '{';
+	while (!st.empty()) {
+		cerr << (f++ ? "," : "");
+		__print(st.top());
+		st.pop();
+	}
+	cerr << "}";
+}
+
 void _print() {cerr << "]\n";}
-template <typename T, typename... V>
-void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
-#ifndef ONLINE_JUDGE
+
+template <class T, class... V> void _print(T t, V... v) {
+	__print(t);
+	if (sizeof...(v))
+		cerr << ", ";
+	_print(v...);
+	// cerr << "]\n";
+}
+
 #define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
-#else
-#define debug(x...)
-#endif
+// End of Debug
 
 
 time spent() {
@@ -80,6 +143,7 @@ void ss(string &i) {
 		temp = getchar_unlocked();
 	}
 }
+
 void write(int &x) {
 	register char buffor[35];
 	register int i = 0;
@@ -91,6 +155,7 @@ void write(int &x) {
 	while (i >= 0) putchar_unlocked(buffor[i--]);
 	putchar_unlocked('\n');
 }
+
 void fs(int &x) {
 	register int c = getchar_unlocked();
 	x = 0;
@@ -99,6 +164,7 @@ void fs(int &x) {
 		x = (x << 1) + (x << 3) + c - 48;
 	}
 }
+
 void fs(long long &x) {
 	register long long c = getchar_unlocked();
 	x = 0;
@@ -132,8 +198,6 @@ ll divide(string s, ll x) {
 	return temp;
 }
 
-
-
 int binexp1(int a, int b, int m) {
 	int result = 1;
 	while (b > 0) {
@@ -160,8 +224,8 @@ long long multiply(long long a, long long b, long long m) {
 	return result;
 }
 
-long long binexp2(long long a, long long b, long long m) {
-	long long result = 1;
+ll binexp2(ll a, ll b, ll m) {
+	ll result = 1;
 	while (b > 0) {
 		if (b & 1) {
 			result = multiply(result, a, m);
@@ -195,10 +259,8 @@ void etf() {
 	}
 }
 
-
 // miller rabin
-
-bool miller(long long n) {
+bool miller(ll n) {
 	if (n <= 1 || n % 2 == 0) {
 		if (n != 2) {
 			return false;
@@ -207,14 +269,14 @@ bool miller(long long n) {
 	if (n == 2 || n == 3) {
 		return true;
 	}
-	long long d = n - 1;
+	ll d = n - 1;
 	while (d % 2 == 0) {
 		d /= 2;
 	}
-	long long a[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
+	ll a[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
 	for (int i = 0; i < 12 && a[i] < n; ++i) {
-		long long temp = d;
-		long long mod = binexp2(a[i], temp, n);
+		ll temp = d;
+		ll mod = binexp2(a[i], temp, n);
 		if (mod == 1) {
 			continue;
 		}
@@ -231,10 +293,10 @@ bool miller(long long n) {
 }
 
 //   extendid euclid
-
 struct node {
 	ll x, y;
 };
+
 struct node exteuclid(ll a, ll b) {
 	if (a % b == 0) {
 		node ret;
@@ -250,19 +312,20 @@ struct node exteuclid(ll a, ll b) {
 }
 
 // binary indexed tree
-
 void update(int i, int x) {
-	while (i <= N) {
+	while (i > 0 && i <= N) {
 		bit[i] += x;
-		i = i + (i & (-i));
+		// i = i + (i & (-i));
+		i += (i & -i);
 	}
 }
 
 int sum(int i) {
 	int ans = 0;
-	while (i != 0 && i > 0) {
+	while (i > 0) {
 		ans += bit[i];
-		i = (i & (i - 1));
+		// i = (i & (i - 1));
+		i -= (i & -i);
 	}
 	return ans;
 }
@@ -304,7 +367,6 @@ int sum(int i, int j) {
 }
 
 // segment tree
-
 void build(int a[], int v, int tl, int tr) {
 	if (tl == tr) {
 		t[v] = a[tl];
@@ -341,8 +403,8 @@ void update(int v, int tl, int tr, int pos, int val) {
 		t[v] = t[v << 1] + t[(v << 1) + 1];
 	}
 }
-//lazy propagation
 
+//lazy propagation
 void build(int v, int tl, int tr) {
 	lazy[v] = 0;
 	if (tl == tr) {
@@ -387,7 +449,7 @@ void update(int v, int tl, int tr, int l, int r, long long val) {
 	t[v] = t[v << 1] | t[(v << 1) + 1];
 }
 
-long long qry(int v, int tl, int tr, int l, int r) {
+ll qry(int v, int tl, int tr, int l, int r) {
 	if (lazy[v]) {
 		if (tl == tr)
 			t[v] = lazy[v];
@@ -407,9 +469,7 @@ long long qry(int v, int tl, int tr, int l, int r) {
 	return qry(v << 1, tl, mid, l, r) + qry((v << 1) + 1, mid + 1, tr, l, r);
 }
 
-
 // DSU
-
 int parent[N], rnk[N];
 
 void make(int v) {
@@ -457,6 +517,7 @@ void merge(int v, int vl, int vr) {
 		++j;
 	}
 }
+
 void build(int v, int tl, int tr) {
 	if (tl == tr) {
 		t[v].pb(a[tl]);
@@ -468,6 +529,7 @@ void build(int v, int tl, int tr) {
 		merge(v, v << 1, (v << 1) + 1);
 	}
 }
+
 int qry(int v, int tl, int tr, int l, int r, int k) {
 	if (l > r) {
 		return 0;
@@ -496,6 +558,7 @@ void dfs(int node) {
 	}
 	tout[node] = ++timer;
 }
+
 void setparent(int n) {
 	for (int i = 1 ; i < MLOG ; ++i) {
 		for (int j = 1 ; j <= n; ++j) {
@@ -503,9 +566,11 @@ void setparent(int n) {
 		}
 	}
 }
+
 bool isanc(int top, int bot) {
 	return (tin[top] <= tin[bot]) && (tout[bot] <= tout[top]);
 }
+
 int lca(int a, int b) {
 	int diff = level[a] - level[b];
 	if (diff < 0) {
@@ -528,12 +593,12 @@ int lca(int a, int b) {
 	}
 	return a;
 }
+
 int dist(int a , int b) {
 	return level[a] + level[b] - 2 * level[lca(a , b)];
 }
 
 //  MATRIX EXPO
-
 void matmul(ll a[3][3], ll b[3][3], ll c[3][3]) {
 	int i, j, k;
 	for (i = 0; i < 3; ++i) {
@@ -654,10 +719,11 @@ struct TRIE {
 	}
 } tr;
 
-//Dinics max flow ALGO
+// Dinics max flow ALGO
 struct edge {
 	int from, to, cap, flow;
 };
+
 vector <int> g[MAX];
 vector <edge> e;
 int source, sink, level[MAX], ptr[MAX];
@@ -712,6 +778,7 @@ int dfs(int v, int flow) {
 	}
 	return 0;
 }
+
 int dinic() {
 	int flow = 0, val;
 	while (bfs()) {
@@ -728,7 +795,7 @@ int block, n;
 
 struct node {
 	int l, r, idx;
-	long long ans;
+	ll ans;
 } qry[N];
 bool cmp(node a, node b) {
 	if ((a.l / block) != b.l / block)
@@ -779,12 +846,12 @@ int main() {
 
 //ordered Set | policy based data structure
 
+#include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
-#include <bits/stdc++.h>
 
-using namespace __gnu_pbds;
 using namespace std;
+using namespace __gnu_pbds;
 
 typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
 
