@@ -35,6 +35,7 @@ typedef map<ll, ll> mpll;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, a, n) for (int i = a; i <= n; i++)
 #define repR(i, m, n) for (int i = n; i >= m; i--)
+#define each(x, v) for(auto &x : v)
 #define ff first
 #define ss second
 #define pb push_back
