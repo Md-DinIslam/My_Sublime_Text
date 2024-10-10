@@ -18,6 +18,17 @@ void __print(const char *x) {cerr << '\"' << x << '\"';}
 void __print(const string &x) {cerr << '\"' << x << '\"';}
 void __print(bool x) {cerr << (x ? "1 " : "0 ");}
 
+// Special Case....
+void __print(const vector<bool> &v) {
+	int f = 0;
+	cerr << '{';
+	for (auto i : v) {
+		cerr << (f++ ? "," : "");
+		__print(i);
+	}
+	cerr << "}";
+}
+
 template<class T, class V> void __print(const pair<T, V> &x) {
 	cerr << '{'; __print(x.first);
 	cerr << ","; __print(x.second);
@@ -26,12 +37,12 @@ template<class T, class V> void __print(const pair<T, V> &x) {
 
 template<class T, class V> void __print(const map<T, vector<V>> &pr) {
 	cerr << "{";
-	for (auto &x : pr) {
+	for (auto x : pr) {
 		cerr << "{";
 		__print(x.first);
 		cerr << "--> ";
 		bool f = 0;
-		for (auto &v : x.second) {
+		for (auto v : x.second) {
 			cerr << (f++ ? "," : "");
 			__print(v);
 		}
@@ -40,10 +51,26 @@ template<class T, class V> void __print(const map<T, vector<V>> &pr) {
 	cerr << "}";
 }
 
+template<class T, class V> void __print(const map<vector<V>, T> &pr) {
+	cerr << "{";
+	for (auto x : pr) {
+		cerr << "{";
+		bool f = 0;
+		for (auto v : x.first) {
+			cerr << (f++ ? "," : "");
+			__print(v);
+		}
+		cerr << "}, ";
+		__print(x.second);
+		cerr << "}";
+	}
+	cerr << "}";
+}
+
 template<class T> void __print(T v) {
 	int f = 0;
 	cerr << '{';
-	for (auto &i : v) {
+	for (auto i : v) {
 		cerr << (f++ ? "," : "");
 		__print(i);
 	}
@@ -93,7 +120,7 @@ template <class T, class... V> void _print(T t, V... v) {
 	// cerr << "]\n";
 }
 
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
+#define debug(x...) cerr << "[" << #x << "] = ["; _print(x);
 
 // #ifndef LOCAL
 // #define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
