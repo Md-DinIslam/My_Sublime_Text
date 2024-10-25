@@ -64,11 +64,11 @@ const lld PI = 3.141592653589793238;
 const ll INF = 1e18 + 9;
 const ll mod = 1e9 + 7;
 
-int dx[4] = { 1, 0, -1, 0};
-int dy[4] = { 0, 1, 0, -1};
+int dx[4] = {0, 0, 1, -1};
+int dy[4] = {1, -1, 0, 0};
 
-int di[8] = {1, 0, -1, 0, 1, -1, -1, 1};
-int dj[8] = {0, 1, 0, -1, 1, 1, -1, -1};
+int di[8] = {1, 1, 1, -1, -1, -1, 0, 0};
+int dj[8] = {1, -1, 0, 1, -1, 0, 1, -1};
 
 int mod_add(int a, int b, int m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
 int mod_mul(int a, int b, int m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
