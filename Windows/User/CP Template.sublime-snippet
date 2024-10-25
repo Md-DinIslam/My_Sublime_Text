@@ -24,34 +24,33 @@ typedef vector<vll> mat;
 typedef unordered_map<ll, ll> umpll;
 typedef unordered_map<int, int> umpi;
 typedef map<ll, ll> mpll;
-// typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> oset;
+// template<class T> using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 // Macros
+#define speed ios_base::sync_with_stdio(0), cin.tie(0)
+#define GET_MACRO(_1, _2, _3, NAME, ...) NAME
+#define rep(...) GET_MACRO(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)
+#define rep1(i, n) for(int i = 0; i < int(n); ++i)
+#define rep2(i, a, n) for(int i = int(a); i <= int(n); ++i)
 #define prf(x) printf("%d\n", x)
 #define pfl(x) printf("%lld\n", x)
 #define sc(x) scanf("%d", &x)
 #define scl(x) scanf("%lld", &x)
 #define scf(x) scanf("%lf", &x)
-#define rep(i, n) for (int i = 0; i < n; i++)
-#define rep2(i, a, n) for (int i = a; i <= n; i++)
-#define repR(i, m, n) for (int i = n; i >= m; i--)
-#define each(x, v) for(auto &x : v)
 #define ff first
 #define ss second
 #define pb push_back
 #define pp pop_back
 #define mp make_pair
-#define py cout << "YES\n";
-#define pm cout << "-1\n";
-#define pn cout << "NO\n";
-#define pf cout << "FIRST\n";
-#define nn cout << '\n';
-#define bitcount __builtin_popcountll
+#define py cout << "YES\n"
+#define pm cout << "-1\n"
+#define pn cout << "NO\n"
+#define nl cout << '\n'
+#define bitcnt __builtin_popcountll
 #define endl '\n'
 #define arr array
-#define speed ios_base::sync_with_stdio(0), cin.tie(0)
-#define all(v) v.begin(), v.end()
-#define allR(v) v.end(), v.begin()
+#define all(x) x.begin(), x.end()
+#define sz(x) (int) x.size()
 
 // Debug..
 #ifdef LOCAL
@@ -65,8 +64,12 @@ const lld PI = 3.141592653589793238;
 const ll INF = 1e18 + 9;
 const ll mod = 1e9 + 7;
 
-int dx[4] = { -1, 1, -1, 1};
-int dy[4] = { -1, -1, 1, 1};
+int dx[4] = { 1, 0, -1, 0};
+int dy[4] = { 0, 1, 0, -1};
+
+int di[8] = {1, 0, -1, 0, 1, -1, -1, 1};
+int dj[8] = {0, 1, 0, -1, 1, 1, -1, -1};
+
 int mod_add(int a, int b, int m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
 int mod_mul(int a, int b, int m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
 int mod_sub(int a, int b, int m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
@@ -79,10 +82,10 @@ int main() {
     speed;
     int t = 1;
     // cin >> t;
-    while (t--) Din();
-    // for(int i = 1;i <= t; ++i) { //Kickstart
-    //     cout << "Case #" << i << ": "; Din();
-    // }
+    for (int i = 1; i <= t; ++i) { // Kickstart
+        // cout << "Case " << i << ": ";
+        Din();
+    }
     return 0;
 }
 ]]></content>
