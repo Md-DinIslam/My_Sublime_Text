@@ -56,7 +56,7 @@ typedef map<ll, ll> mpll;
 #ifdef LOCAL
 #include "debug.h"
 #else
-#define debug(x...)
+#define dg(x...)
 #endif
 
 // Constants
