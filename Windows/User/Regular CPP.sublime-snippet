@@ -10,7 +10,7 @@ using namespace std;
 #ifdef LOCAL
 #include "debug.h"
 #else
-#define debug(x...)
+#define dg(x...)
 #endif
 
 #define GET_MACRO(_1, _2, _3, NAME, ...) NAME
