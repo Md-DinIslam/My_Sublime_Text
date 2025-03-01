@@ -1,9 +1,10 @@
-// #include <bits/stdc++.h>
-// using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 // #define _cout cerr
 
 //DEBUG
+void __print(bool x) {cerr << (x ? "1 " : "0 ");}
 void __print(int x) {cerr << x << " ";}
 void __print(long x) {cerr << x << " ";}
 void __print(long long x) {cerr << x << " ";}
@@ -16,16 +17,21 @@ void __print(long double x) {cerr << x << " ";}
 void __print(char x) {cerr << '\'' << x << '\'';}
 void __print(const char *x) {cerr << '\"' << x << '\"';}
 void __print(const string &x) {cerr << '\"' << x << '\"';}
-void __print(bool x) {cerr << (x ? "1 " : "0 ");}
 
 // Special Case....
-void __print(const vector<bool> &v) {
+void _print(vector<bool> v) {
 	int f = 0;
 	cerr << '{';
 	for (auto i : v) {
-		cerr << (f++ ? "," : "");
+		cerr << (f ? "," : "");
+		f |= 1;
 		__print(i);
 	}
+	// for (int i = 0; i < v.size(); ++i) {
+	// 	cerr << (f ? "," : "");
+	f |= 1;
+	// 	__print(v[i]);
+	// }
 	cerr << "}";
 }
 
@@ -43,7 +49,8 @@ template<class T, class V> void __print(const map<T, vector<V>> &pr) {
 		cerr << "--> ";
 		bool f = 0;
 		for (auto v : x.second) {
-			cerr << (f++ ? "," : "");
+			cerr << (f ? "," : "");
+			f |= 1;
 			__print(v);
 		}
 		cerr << "}";
@@ -57,7 +64,8 @@ template<class T, class V> void __print(const map<vector<V>, T> &pr) {
 		cerr << "{";
 		bool f = 0;
 		for (auto v : x.first) {
-			cerr << (f++ ? "," : "");
+			cerr << (f ? "," : "");
+			f |= 1;
 			__print(v);
 		}
 		cerr << "}, ";
@@ -71,9 +79,15 @@ template<class T> void __print(T v) {
 	int f = 0;
 	cerr << '{';
 	for (auto i : v) {
-		cerr << (f++ ? "," : "");
+		cerr << (f ? "," : "");
+		f |= 1;
 		__print(i);
 	}
+	// for (int i = 0; i < (int)v.size(); ++i) {
+	// 	cerr << (f ? "," : "");
+	f |= 1;
+	// 	_print(v[i]);
+	// }
 	cerr << "}";
 }
 
@@ -81,7 +95,8 @@ template<class T> void __print(queue<T> q) {
 	int f = 0;
 	cerr << '{';
 	while (!q.empty()) {
-		cerr << (f++ ? "," : "");
+		cerr << (f ? "," : "");
+		f |= 1;
 		__print(q.front());
 		q.pop();
 	}
@@ -92,7 +107,8 @@ template<class T> void __print(priority_queue<T> pq) {
 	int f = 0;
 	cerr << '{';
 	while (!pq.empty()) {
-		cerr << (f++ ? "," : "");
+		cerr << (f ? "," : "");
+		f |= 1;
 		__print(pq.top());
 		pq.pop();
 	}
@@ -103,7 +119,8 @@ template<class T> void __print(stack<T> st) {
 	int f = 0;
 	cerr << '{';
 	while (!st.empty()) {
-		cerr << (f++ ? "," : "");
+		cerr << (f ? "," : "");
+		f |= 1;
 		__print(st.top());
 		st.pop();
 	}
@@ -120,7 +137,7 @@ template <class T, class... V> void _print(T t, V... v) {
 	// cerr << "]\n";
 }
 
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x);
+#define dg(x...) cerr << "[" << #x << "] = ["; _print(x);
 
 // #ifndef LOCAL
 // #define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
