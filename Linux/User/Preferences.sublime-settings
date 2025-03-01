@@ -8,6 +8,7 @@
 	[
 		"Vintage",
     ],
+    "create_window_at_startup": true,
     "auto_complete_commit_on_tab": false,
     "tab_completion": false,
     "index_files": true,
