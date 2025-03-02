@@ -24,9 +24,22 @@
   { "keys": ["f2"], "command": "side_bar_rename" },
   // { "keys": ["ctrl+alt+f"], "command": "side_bar_find_files_path_containing" },
   { "keys": ["f12"], "command": "reindent" },
+  { "keys": ["ctrl+h"], "command": "show_panel", "args": {"panel": "find", "reverse": false} },
   { "keys": ["super+k", "super+t"], "command": "title_case" },
   { "keys": ["super+v"], "command": "paste_and_indent" },
   { "keys": ["super+shift+v"], "command": "paste" },
+  
+  { "keys": ["escape"], "command": "single_selection", "context":
+    [
+      { "key": "num_selections", "operator": "not_equal", "operand": 0}
+    ]
+  },
+    { "keys": ["escape"], "command": "hide_panel", "args": {"cancel": true},
+    "context":
+    [
+      { "key": "panel_visible", "operator": "equal", "operand": true }
+    ]
+  },
   
   // { "keys": ["tab"], "command": "insert", "args": {"characters": "\t"} },
   // { "keys": ["tab"], "command": "auto_complete", "args": {"mini": true, "default": "\t",  "commit_single": true},
