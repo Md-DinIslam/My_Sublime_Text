@@ -6,9 +6,13 @@
 	"color_scheme": "Packages/One Dark Material - Theme/schemes/OneDark.tmTheme",
 	"ignored_packages":
 	[
-		"Vintage",
     ],
-    "create_window_at_startup": true,
+    // "create_window_at_startup": false,
+
+    "hot_exit": true,
+    "remember_open_files": true,
+    "remember_workspace": true,
+    // "remember_layout": true,
     "auto_complete_commit_on_tab": false,
     "tab_completion": false,
     "index_files": true,
