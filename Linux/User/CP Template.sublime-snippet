@@ -71,6 +71,9 @@ int dy[4] = {1, 0, -1, 0};
 int di[8] = {1, 1, 1, -1, -1, -1, 0, 0};
 int dj[8] = {1, -1, 0, 1, -1, 0, 1, -1};
 
+int ki[8] = {1, 2, 1, 2, -1, -2, -1, -2};
+int kj[8] = {2, 1, -2, -1, 2, 1, -2, -1};
+
 int mod_add(int a, int b, int m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
 int mod_mul(int a, int b, int m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
 int mod_sub(int a, int b, int m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
